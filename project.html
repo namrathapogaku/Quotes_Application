@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quote Generator</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0fff1;
+        }
+        
+        #quote-box {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        #quote {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        
+        #author {
+            font-style: italic;
+            color: #903595;
+            text-align: right;
+        }
+        
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #69a4a2c6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: rgb(31, 168, 202);
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-box">
+        <h1>Quote Generator</h1>
+        <div id="quote">Click the button for a quote!</div>
+        <div id="author"></div>
+        <button id="new-quote">Get New Quote</button>
+    </div>
+
+    <script>
+        
+        const quotes = [
+            {
+                text: "The only way to do great work is to love what you do. ",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Life is what happens when you're busy making other plans.",
+                author: "John Lennon"
+            },
+            {
+                text: "In the end, it's not the years in your life that count. It's the life in your years.",
+                author: "Abraham Lincoln"
+            },
+            {
+                text: "The future belongs to those who believe in the beauty of their dreams.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                text: "You miss 100% of the shots you don't take.",
+                author: "Wayne Gretzky"
+            }
+        ];
+          
+        
+        const quoteElement = document.getElementById('quote');
+        const authorElement = document.getElementById('author');
+        const newQuoteButton = document.getElementById('new-quote');
+
+         
+        function getRandomQuote() {
+            
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            
+            
+            return quotes[randomIndex];
+        }
+
+        
+        function displayQuote() {
+            
+            const randomQuote = getRandomQuote();
+            
+            
+            quoteElement.textContent = randomQuote.text;
+            authorElement.textContent = "- " + randomQuote.author;
+        }
+
+        
+        newQuoteButton.addEventListener('click', displayQuote);
+
+
+        displayQuote();
+    </script>
+
+
+
+
+    
+</body>
+</html>
